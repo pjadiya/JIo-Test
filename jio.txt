@@ -1,0 +1,19 @@
+n= int(input())
+N=input().split(' ')
+count={}
+cot=[[0,0,int(N[0])]]
+for i in range (n):
+    N[i]=int(N[i])
+    count[N[i]]=count.get(N[i],0) +1
+    if i>0:
+        if N[i]!=N[i-1]:
+            cot.append([0,-i,N[i]])
+for i in range(len(cot)):
+    cot[i][0]=count[cot[i][2]]
+cot= sorted(cot, reverse=True)
+z=''
+for i in range (len(cot)):
+    for j in range(cot[i][0]):
+        z+=str(cot [i][2]) + ' '
+print(z)
+    
